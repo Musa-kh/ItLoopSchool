@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-
+(function() {
     const schoolCoordinates = [76.6327639, 43.199507];
     const mapWrapper = document.querySelector('.map-wrapper');
     const fullscreen = document.getElementById('mapFullscreen');
@@ -14,13 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
             container: containerId,
             style: 'https://tiles.openfreemap.org/styles/liberty',
             center: schoolCoordinates,
-            zoom: zoom
+            zoom: zoom,
+            cooperativeGestures: true // Исправляет "залипание" скролла страницы на карте
         });
+
+        // Добавляем кнопки зума (+/-), так как скролл теперь "умный"
+        mapInstance.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
         // маркер
         const markerEl = document.createElement('div');
         markerEl.className = 'marker';
-        markerEl.style.backgroundImage = 'url(images/logo.png)';
+        markerEl.style.backgroundImage = 'url(images/logo.webp)';
 
         const popup = new maplibregl.Popup({ offset: 25 })
             .setHTML("<strong>IT Loop School</strong><br>ул. Алии Молдагуловой, 3а, Каскелен");
@@ -42,18 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return mapInstance;
     }
 
-    // ===== ЛЕНИВАЯ ЗАГРУЗКА КАРТЫ =====
-    const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-            map = createMap('map', 17);
-            observer.disconnect();
-        }
-    }, { threshold: 0.3 });
-
-    observer.observe(mapWrapper);
+    // Инициализируем карту сразу, так как скрипт уже загружен лениво
+    map = createMap('map', 17);
 
     // ===== FULLSCREEN =====
-    mapWrapper.addEventListener('click', () => {
+    mapWrapper.addEventListener('click', (e) => {
+        // Не открываем fullscreen при клике на кнопки зума или маркер
+        if (e.target.closest('.maplibregl-ctrl') || e.target.closest('.marker')) return;
+
         fullscreen.style.display = 'flex';
         // помечаем документ — чтобы скрыть шапку и карточки через CSS
         document.body.classList.add('map-open');
@@ -82,5 +81,4 @@ document.addEventListener("DOMContentLoaded", () => {
             closeFullscreen();
         }
     });
-
-});
+})();

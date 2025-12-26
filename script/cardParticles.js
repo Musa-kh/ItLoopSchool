@@ -1,54 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Оптимизация: отключаем частицы на мобильных и планшетах
+    if (window.innerWidth < 1024) return;
+
     const track = document.getElementById("cardsTrack");
+    let lastSpawnTime = 0;
+    const spawnInterval = 600; // Создаем частицы реже (раз в 600мс)
     
     function createParticle(card) {
+        // Ограничение: не больше 3 частиц одновременно на карточке
+        if (card.querySelectorAll('.card-particle').length >= 3) return;
+
         const particle = document.createElement('div');
         particle.classList.add('card-particle');
         
         const size = Math.random() * 6 + 2;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
-        
-        // Позиция внутри карточки
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        
-        // Желтый или Голубой
+        particle.style.left = Math.random() * 90 + 5 + '%';
+        particle.style.top = Math.random() * 90 + 5 + '%';
         particle.style.background = Math.random() > 0.5 ? '#00d2ff' : '#f1c40f';
-        
-        const duration = Math.random() * 3 + 2;
-        particle.style.animation = `particleFade ${duration}s ease-in-out infinite`;
         
         card.appendChild(particle);
         
+        // Удаляем элемент после завершения анимации (3s в CSS)
         setTimeout(() => {
-            particle.remove();
-        }, duration * 1000);
+            if (particle.parentNode) particle.remove();
+        }, 3000);
     }
 
-    // Следим за добавлением карточек
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            mutation.addedNodes.forEach((node) => {
-                if (node.classList && node.classList.contains('course-card')) {
-                    setInterval(() => {
-                        if (node.classList.contains('active')) {
-                            createParticle(node);
-                        }
-                    }, 400);
-                }
-            });
-        });
-    });
-
-    observer.observe(track, { childList: true });
-    
-    // Для уже существующих (если они есть к моменту запуска скрипта)
-    document.querySelectorAll('.course-card').forEach(card => {
-        setInterval(() => {
-            if (card.classList.contains('active')) {
-                createParticle(card);
+    function loop(timestamp) {
+        if (timestamp - lastSpawnTime > spawnInterval) {
+            const activeCard = track.querySelector('.course-card.active');
+            if (activeCard) {
+                createParticle(activeCard);
             }
-        }, 400);
-    });
+            lastSpawnTime = timestamp;
+        }
+        requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
 });

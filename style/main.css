@@ -15,6 +15,11 @@
     position: relative;
     font-size: 28px !important;
 }
+.c1{
+    position: relative;
+    top: 50px;
+    font-size: 55px !important;
+}
 .about::before {
     content: "";
     position: absolute;
@@ -355,10 +360,10 @@ body.map-open .cours-title-bg {
 .logoMap {
     position: relative;
     bottom: 600px;       /* расстояние сверху */
-    left: 65%;     /* справа от карты */
+    left: 60%;     /* справа от карты */
     width: 250px;
     height: 150px;
-    background: url('../images/logo2.png') center/contain no-repeat;
+    background: url('../images/logo2.webp') center/contain no-repeat;
     transition: transform 0.2s ease;
 
     z-index: 3;
@@ -431,7 +436,7 @@ body.map-open .cours-title-bg {
     width: 170px;
     height: 400px;
     margin: 0 0 10px 0;
-    background-image: url("/images/backgound-day.webp");
+    background-image: url("../images/backgound-day.webp");
     background-size: cover;
     border-radius: 14px;
     border: 2px solid #000;
@@ -468,7 +473,7 @@ h5{
 /* Логотип */
 .logoSchedule{
     height: 80px;
-    background-image: url('../images/logo2.png');
+    background-image: url('../images/logo2.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -596,7 +601,7 @@ h5{
     border-radius: 10px;
 }
 .img1 {
-    background-image: url("/images/st3.webp");
+    background-image: url("../images/st3.webp");
     background-size: cover;
     width: 240px;
     height: 150px;
@@ -604,7 +609,7 @@ h5{
 }
 
 .img2 {
-    background-image: url("/images/st4.webp");
+    background-image: url("../images/st4.webp");
     background-size: cover;
     width: 230px;
     height: 150px;
@@ -613,7 +618,7 @@ h5{
 }
 
 .img3 {
-    background-image: url("/images/st2.webp");
+    background-image: url("../images/st2.webp");
     background-size: cover;
     grid-column-start: 4;
     grid-row-start: 2;
@@ -624,7 +629,7 @@ h5{
 }
 
 .img4 {
-    background-image: url("/images/st1.webp");
+    background-image: url("../images/st1.webp");
     background-size: cover;
     width: 150px;
     height: 150px;
@@ -633,7 +638,7 @@ h5{
 }
 
 .img5 {
-    background-image: url("/images/st5.webp");
+    background-image: url("../images/st5.webp");
     background-size: cover;
     width: 240px;
     height: 150px;
@@ -643,7 +648,7 @@ h5{
 }
 
 .img6 {
-    background-image: url("/images/st6.webp");
+    background-image: url("../images/st6.webp");
     background-size: cover;
     width: 230px;
     height: 150px;
@@ -654,7 +659,7 @@ h5{
 
 .img7 {
     background:
-            url('/images/logo.png') center/contain no-repeat,
+            url('../images/logo.png') center/contain no-repeat,
             linear-gradient(135deg, #00c4ff, rgba(255, 235, 59, 0.96));
     width: 150px;
     height: 150px;
@@ -1578,7 +1583,7 @@ h5{
                     rgba(12, 219, 255, 0.12),
                     rgba(255, 239, 0, 0.12)
             ),
-            url("/images/lines.svg");
+            url("../images/lines.svg");
 
     background-size: cover, cover;
     background-position: center, center -400px ;
@@ -1959,6 +1964,7 @@ h5{
     transform-style: preserve-3d;
     will-change: transform;
     z-index: 0;
+    touch-action: pan-y; /* Разрешает вертикальный скролл страницы на мобильных */
 }
 
 .course-card {
@@ -1971,7 +1977,7 @@ h5{
     transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), opacity 0.5s linear;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Оптимизация тени */
     will-change: transform, opacity;
     -webkit-tap-highlight-color: transparent;
 
@@ -1987,7 +1993,7 @@ h5{
 
 @keyframes particleFade {
     0% { opacity: 0; transform: translateY(0) scale(1); }
-    50% { opacity: 0.6; }
+    50% { opacity: 0.8; }
     100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
 }
 
@@ -2011,24 +2017,23 @@ h5{
 /* Эффекты только для десктопов */
 @media (min-width: 1025px) {
     .course-card {
-        filter: blur(4px);
+        /* filter: blur(4px); УБРАНО: очень сильно грузит процессор */
+        opacity: 0.4; /* Используем прозрачность вместо блюра */
         transform: scale(0.7) translate3d(0, 0, -200px);
     }
     .course-card.active {
         transform: scale(1.1) translate3d(0, 0, 100px);
-        filter: blur(0);
+        opacity: 1;
     }
     .course-card.prev,
     .course-card.prev2,
     .course-card.prev3 {
         transform: scale(0.9) rotateY(20deg);
-        filter: blur(2px);
     }
     .course-card.next,
     .course-card.next2,
     .course-card.next3 {
         transform: scale(0.9) rotateY(-20deg);
-        filter: blur(2px);
     }
 }
 
@@ -2094,12 +2099,10 @@ h5{
 @media (max-width: 768px) {
     .course-card {
         flex: 0 0 240px;
-        filter: none !important;
         transform: scale(0.85);
     }
     .course-card.active {
         transform: scale(1.05);
-        filter: none !important;
     }
     .course-card.prev,
     .course-card.prev2,

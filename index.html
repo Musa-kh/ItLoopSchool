@@ -5,11 +5,21 @@
     <meta name="description" content="IT школа в Каскелене и Алматы. Курсы программирования и IT для детей и взрослых. IT Loop School — обучение с нуля.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.png">
-    <link rel="stylesheet" href="style/critical.css">
+    <link rel="icon" href="images/logo.webp">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-
+    <link rel="stylesheet" href="style/ferstStyle.css">
+    <script type="application/ld+json">
+    {
+      "@type": "EducationalOrganization",
+      "name": "IT Loop School",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Каскелен",
+        "streetAddress": "Алии Молдагуловой 3а"
+      }
+    }
+    </script>
     <link rel="preload" href="fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="style/main.css" media="print" onload="this.media='all'">
@@ -17,16 +27,19 @@
         <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet">
         <link rel="stylesheet" href="style/main.css">
     </noscript>
-    <link rel="preload" as="image" href="images/banner.webp">
+    <link rel="preload" as="image" href="images/logo.webp">
+    <link rel="preload" as="image" href="images/banner.webp" media="(min-width: 1201px)">
+    <link rel="preload" as="image" href="images/phoneBaner.webp" media="(max-width: 1200px) and (min-width: 1001px)">
+    <link rel="preload" as="image" href="images/phoneBaner2.webp" media="(max-width: 1000px) and (min-width: 561px)">
+    <link rel="preload" as="image" href="images/phoneBaner3.webp" media="(max-width: 560px)">
     <title>IT школа в Каскелене — курсы программирования | IT Loop School</title>
 </head>
-    <script defer src="script/schema.js"></script>
 <body>
 
 <header id="main" class="header">
     <div class="top-bar">
         <div class="logo">
-                <img src="images/logo.png" alt="Logo" width="50" height="50">
+            <img src="images/logo.webp" alt="Logo" width="50" height="50">
             <p data-i18n="logo_text">LOOP – IT школа для детей и взрослых</p>
             <button class="menuBtn" id="menuBtn">
                 <img src="images/ep_arrow-up-bold.svg" alt="Menu" width="24" height="24">
@@ -52,7 +65,7 @@
 
     <section class="headerBanner">
         <div class="banner-content">
-            <img src="images/logo.png" alt="IT Loop School" width="150" height="210" fetchpriority="high">
+            <img src="images/logo.webp" alt="IT Loop School" width="150" height="210" fetchpriority="high" decoding="async">
             <h1 data-i18n="banner_title">
                 IT школа в Каскелене<br> IT Loop School
             </h1>
@@ -121,16 +134,11 @@
                         <li class="list-st" data-i18n="students_li_5">Уверенно используют компьютер, работают с офисными программами и интернет-сервисами.</li>
                     
                     </ul>
-                    <img class="student-img" width="300" height="200" src="images/stt.webp" alt="Student" loading="lazy" style="height: auto;">
+                    <img class="student-img" width="300" height="200" src="images/stt.webp" alt="Student" loading="lazy" decoding="async" sizes="(max-width: 768px) 90vw, 300px" style="height: auto;">
                 </div>
                 
             </div>
         </div>
-
-
-
-
-
         <div class="map-section">
             <div class="map-wrapper">
                 <div class="map-bg"></div>
@@ -281,7 +289,7 @@
 
         <div class="footer-center">
             <div class="footer-logo">
-                <img src="images/logo.png" alt="Logo" loading="lazy" width="50" height="50">
+                <img src="images/logo.webp" alt="Logo" loading="lazy" width="50" height="110">
                 <p class="gradient-title" data-i18n="footer_logo">IT Loop School</p>
             </div>
 
@@ -295,7 +303,7 @@
 
             <div class="footer-socials">
                 <a target="_blank" href="https://wa.me/77084130827" aria-label="WhatsApp"><img src="images/whatsapp-ico.webp" alt="WhatsApp" loading="lazy" width="32" height="32"></a>
-                <a target="_blank" href="https://www.instagram.com/itloop.kz" aria-label="Instagram"><img src="images/instagram_ico.webp" alt="Instagram" loading="lazy" width="32" height="32"></a>
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/itloop.kz" aria-label="Instagram"><img src="images/instagram_ico.webp" alt="Instagram" loading="lazy" width="32" height="32"></a>
             </div>
 
             <p class="footer-copy" data-i18n="footer_copy">© 2025 IT Loop School. Все права защищены.</p>
@@ -303,25 +311,43 @@
     </div>
 </footer>
 
-
-
-
-
-
-<script defer src="script/scrol.js"></script>
 <script defer src="script/navigation.js"></script>
-<script defer src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
-<script defer src="script/mapScrol.js"></script>
 <script defer src="script/changeLang.js"></script>
 <script defer src="script/header.js"></script>
+<script defer src="script/scrol.js"></script>
 <script defer src="script/person-anim.js"></script>
 <script defer src="script/modalMap.js"></script>
 <script defer src="script/addCard.js"></script>
 <script defer src="script/cardParticles.js"></script>
 <script defer src="script/send-message.js"></script>
 <script defer src="script/particleMain.js"></script>
-    <script defer src="script/chalkboard-drag.js"></script>
+<script defer src="script/chalkboard-drag.js"></script>
 <script defer src="script/courseAssistant.js"></script>
+<script defer src="script/schema.js"></script>
+<script>
+    // Map lazy load
+    let mapLoaded = false;
+    const mapSection = document.querySelector('.map-section');
+    if (mapSection) {
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && !mapLoaded) {
+                mapLoaded = true;
+                const s = document.createElement('script');
+                s.src = 'https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js';
+                s.defer = true;
+                s.onload = () => {
+                    const s2 = document.createElement('script');
+                    s2.src = 'script/mapScrol.js';
+                    s2.defer = true;
+                    document.body.appendChild(s2);
+                };
+                document.body.appendChild(s);
+                observer.disconnect();
+            }
+        }, { rootMargin: '200px' });
+        observer.observe(mapSection);
+    }
+</script>
 
 
             

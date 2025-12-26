@@ -157,50 +157,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateClasses() {
         const cards = Array.from(track.children);
-        cards.forEach(card => card.classList.remove("prev", "active", "next", "prev2", "next2", "prev3", "next3"));
-
-        // Поскольку мы всегда держим "активную" карточку в центре DOM-структуры для бесконечного эффекта
         const middle = Math.floor(cards.length / 2);
-
-        if (cards[middle]) cards[middle].classList.add("active");
-        if (cards[middle - 1]) cards[middle - 1].classList.add("prev");
-        if (cards[middle - 2]) cards[middle - 2].classList.add("prev2");
-        if (cards[middle - 3]) cards[middle - 3].classList.add("prev3");
-        if (cards[middle + 1]) cards[middle + 1].classList.add("next");
-        if (cards[middle + 2]) cards[middle + 2].classList.add("next2");
-        if (cards[middle + 3]) cards[middle + 3].classList.add("next3");
+        
+        cards.forEach((card, i) => {
+            // Сброс классов (оптимизация)
+            card.className = "course-card";
+            
+            const diff = i - middle;
+            if (diff === 0) card.classList.add("active");
+            else if (diff === -1) card.classList.add("prev");
+            else if (diff === -2) card.classList.add("prev2");
+            else if (diff === -3) card.classList.add("prev3");
+            else if (diff === 1) card.classList.add("next");
+            else if (diff === 2) card.classList.add("next2");
+            else if (diff === 3) card.classList.add("next3");
+        });
     }
 
-    // Изначально центрируем трек, чтобы средняя карточка была посередине
-    // Но так как мы используем appendChild/prepend, нам нужно начальное положение.
-    // Для 7 карточек middle = 3.
-    
     updateClasses();
 
-    function next() {
+    function move(direction) {
         if (isAnimating) return;
         isAnimating = true;
 
         if (!cardWidth) calculateCardWidth();
 
-        // 1. Убираем анимацию, чтобы мгновенно переставить элемент
         track.style.transition = "none";
         
-        // 2. Переносим первый элемент в конец
-        track.appendChild(track.firstElementChild);
-        
-        // 3. Сдвигаем трек вправо, чтобы компенсировать перенос элемента (визуально остаемся на месте)
-        track.style.transform = `translateX(${cardWidth}px)`;
-        
-        // 4. Форсируем перерисовку (Reflow)
-        track.offsetHeight;
-        
-        // 5. Обновляем классы для нового порядка (чтобы центральный элемент стал active)
+        if (direction === 'next') {
+            track.appendChild(track.firstElementChild);
+            track.style.transform = `translateX(${cardWidth}px)`;
+        } else {
+            track.prepend(track.lastElementChild);
+            track.style.transform = `translateX(${-cardWidth}px)`;
+        }
+
         updateClasses();
 
-        // 6. Включаем анимацию и плавно сдвигаем в 0
-        track.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
-        track.style.transform = "translateX(0px)";
+        // Используем requestAnimationFrame для плавности и предотвращения лагов
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                track.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
+                track.style.transform = "translateX(0px)";
+            });
+        });
 
         const handleTransitionEnd = (e) => {
             if (e.propertyName !== "transform" || e.target !== track) return;
@@ -210,52 +210,21 @@ document.addEventListener("DOMContentLoaded", () => {
         track.addEventListener("transitionend", handleTransitionEnd);
     }
 
-    function prev() {
-        if (isAnimating) return;
-        isAnimating = true;
+    const next = () => move('next');
+    const prev = () => move('prev');
 
-        if (!cardWidth) calculateCardWidth();
-
-        track.style.transition = "none";
-        track.prepend(track.lastElementChild);
-        track.style.transform = `translateX(${-cardWidth}px)`;
-
-        // Форсируем перерисовку
-        track.offsetHeight;
-
-        const cards = Array.from(track.children);
-        const middle = Math.floor(cards.length / 2);
-        
-        cards.forEach(c => c.classList.remove("prev", "active", "next", "prev2", "next2", "prev3", "next3"));
-        
-        // Устанавливаем классы для анимации ПЕРЕД началом движения
-        // Так как мы уже сделали prepend, middle - это новая активная карточка
-        if (cards[middle - 3]) cards[middle - 3].classList.add("prev3");
-        if (cards[middle - 2]) cards[middle - 2].classList.add("prev2");
-        if (cards[middle - 1]) cards[middle - 1].classList.add("prev");
-        if (cards[middle]) cards[middle].classList.add("active");
-        if (cards[middle + 1]) cards[middle + 1].classList.add("next");
-        if (cards[middle + 2]) cards[middle + 2].classList.add("next2");
-        if (cards[middle + 3]) cards[middle + 3].classList.add("next3");
-
-        track.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
-        track.style.transform = "translateX(0px)";
-
-        const handleTransitionEnd = (e) => {
-            if (e.propertyName !== "transform" || e.target !== track) return;
-            track.removeEventListener("transitionend", handleTransitionEnd);
-            isAnimating = false;
-            updateClasses();
-        };
-        track.addEventListener("transitionend", handleTransitionEnd);
-    }
     // ===== EVENTS =====
     nextBtn.addEventListener("click", next);
     prevBtn.addEventListener("click", prev);
 
     track.addEventListener("wheel", e => {
-        e.preventDefault();
-        e.deltaY > 0 ? next() : prev();
+        // Исправление: реагируем только на горизонтальный скролл, чтобы не блокировать страницу
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            e.preventDefault();
+            if (Math.abs(e.deltaX) > 20) {
+                e.deltaX > 0 ? next() : prev();
+            }
+        }
     }, { passive: false });
 
     // ===== TOUCH EVENTS FOR SWIPE =====
