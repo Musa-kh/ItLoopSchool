@@ -416,9 +416,7 @@
                 url('../images/phoneBaner3.webp') center/cover no-repeat;
             }
 
-            .banner-content img{
-                width: 170px;
-            }
+      
         }
         @media (max-width: 500px) {
             .logo p{

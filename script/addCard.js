@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+(function() {
     const container = document.querySelector(".courses-container");
     const track = document.getElementById("cardsTrack");
     const nextBtn = document.querySelector(".next");
@@ -142,8 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const firstCard = track.firstElementChild;
         if (firstCard) {
             const style = window.getComputedStyle(firstCard);
-            const margin = parseFloat(window.getComputedStyle(track).gap) || 0;
-            cardWidth = firstCard.offsetWidth + margin;
+            // Получаем gap из стилей трека, если не удалось - берем 30 (как в CSS)
+            const trackStyle = window.getComputedStyle(track);
+            const gap = parseFloat(trackStyle.gap) || 30;
+            cardWidth = firstCard.offsetWidth + gap;
         } else {
             cardWidth = 350;
         }
@@ -161,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         cards.forEach((card, i) => {
             // Сброс классов (оптимизация)
-            card.className = "course-card";
+            card.classList.remove("active", "prev", "next", "prev2", "next2", "prev3", "next3");
             
             const diff = i - middle;
             if (diff === 0) card.classList.add("active");
@@ -194,12 +196,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateClasses();
 
-        // Используем requestAnimationFrame для плавности и предотвращения лагов
+        // Форсируем перерисовку (Reflow) для мгновенного применения transform без анимации
+        void track.offsetWidth;
+
+        // Запускаем анимацию возврата в 0
         requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                track.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
-                track.style.transform = "translateX(0px)";
-            });
+            track.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
+            track.style.transform = "translateX(0px)";
         });
 
         const handleTransitionEnd = (e) => {
@@ -230,10 +233,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // ===== TOUCH EVENTS FOR SWIPE =====
     let touchStartX = 0;
     let touchEndX = 0;
+    let touchStartY = 0;
 
     track.addEventListener("touchstart", e => {
         touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
+
+    // Добавляем touchmove для блокировки вертикального скролла при свайпе карточек
+    track.addEventListener("touchmove", e => {
+        const touchCurrentX = e.changedTouches[0].screenX;
+        const touchCurrentY = e.changedTouches[0].screenY;
+        const diffX = Math.abs(touchCurrentX - touchStartX);
+        const diffY = Math.abs(touchCurrentY - touchStartY);
+
+        // Если движение горизонтальное и явное (>10px), блокируем скролл страницы
+        if (diffX > diffY && diffX > 10) {
+            if (e.cancelable) e.preventDefault();
+        }
+    }, { passive: false });
 
     track.addEventListener("touchend", e => {
         touchEndX = e.changedTouches[0].screenX;
@@ -251,4 +269,4 @@ document.addEventListener("DOMContentLoaded", () => {
             prev();
         }
     }
-});
+})();

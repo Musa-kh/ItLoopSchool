@@ -134,6 +134,18 @@ function animate(time) {
     requestAnimationFrame(animate);
 }
 
+// ====== RESIZE OBSERVER ======
+// Автоматически обновляем canvas, если высота main изменилась (например, загрузились картинки)
+const resizeObserver = new ResizeObserver(() => {
+    const w = main.clientWidth;
+    const h = main.clientHeight;
+    if (canvas.width !== w || canvas.height !== h) {
+        resizeCanvas();
+        initParticles();
+    }
+});
+resizeObserver.observe(main);
+
 // ====== START ======
 applyResponsiveSettings();
 resizeCanvas();

@@ -161,7 +161,7 @@
 .map-fullscreen-close {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 10000;
     width: 50px;
     height: 50px;
@@ -226,6 +226,10 @@ body.map-open .top-bar {
 }
 
 body.map-open .courses-container {
+    display: none !important;
+}
+
+body.map-open .course-assistant {
     display: none !important;
 }
 
@@ -1205,7 +1209,10 @@ h5{
             max-width: 1400px;
             height: 1600px;
         }
-
+        .c1{
+             top: 50px;
+        font-size: 55px !important;
+        }
         .courses-title {
             margin: 0 auto;
         }
@@ -1438,7 +1445,10 @@ h5{
     @media (max-width: 380px) {
         .courses-title {
             font-size: 20px !important;
-
+        }
+        .c1{
+             top: 50px;
+        font-size: 38px !important;
         }
     }
 
@@ -1974,7 +1984,7 @@ h5{
     overflow: hidden;
     opacity: 0.3;
     transform: scale(0.8);
-    transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), opacity 0.5s linear;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s linear;
     cursor: pointer;
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Оптимизация тени */

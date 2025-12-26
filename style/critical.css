@@ -270,7 +270,7 @@ html {
     min-height: 100svh;
     min-height: 100dvh;
     background: linear-gradient(rgba(15,17,26,0.6), rgba(15,17,26,0.6)),
-    url('/images/banner.webp') center/cover no-repeat;
+    url('../images/banner.webp') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -418,9 +418,7 @@ html {
         url('../images/phoneBaner3.webp') center/cover no-repeat;
     }
 
-    .banner-content img{
-        width: 170px;
-    }
+ 
 }
 @media (max-width: 500px) {
     .logo p{
