@@ -6,19 +6,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logo.png">
-    <link rel="stylesheet" href="style/headerStyle.css">
-    <link rel="stylesheet" href="style/aboutStyle.css">
+    <link rel="stylesheet" href="style/critical.css">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="stylesheet" href="style/courseAssistant.css">
 
     <link rel="preload" href="fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="style/footerStyle.css">
+    <link rel="stylesheet" href="style/main.css" media="print" onload="this.media='all'">
     <noscript>
         <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet">
+        <link rel="stylesheet" href="style/main.css">
     </noscript>
-    <link rel="stylesheet" href="style/coursesStyle.css">
     <link rel="preload" as="image" href="images/banner.webp">
     <title>IT школа в Каскелене — курсы программирования | IT Loop School</title>
 </head>
@@ -28,10 +26,10 @@
 <header id="main" class="header">
     <div class="top-bar">
         <div class="logo">
-                <img src="images/logo.png" alt="">
+                <img src="images/logo.png" alt="Logo" width="50" height="50">
             <p data-i18n="logo_text">LOOP – IT школа для детей и взрослых</p>
             <button class="menuBtn" id="menuBtn">
-                <img src="images/ep_arrow-up-bold.svg" alt="">
+                <img src="images/ep_arrow-up-bold.svg" alt="Menu" width="24" height="24">
             </button>
         </div>
 
@@ -54,7 +52,7 @@
 
     <section class="headerBanner">
         <div class="banner-content">
-            <img loading="lazy" src="images/logo.png" alt="">
+            <img src="images/logo.png" alt="IT Loop School" width="150" height="210" fetchpriority="high">
             <h1 data-i18n="banner_title">
                 IT школа в Каскелене<br> IT Loop School
             </h1>
@@ -123,7 +121,7 @@
                         <li class="list-st" data-i18n="students_li_5">Уверенно используют компьютер, работают с офисными программами и интернет-сервисами.</li>
                     
                     </ul>
-                    <img class="student-img" width="300px" src="/images/stt.webp" alt="">
+                    <img class="student-img" width="300" height="200" src="images/stt.webp" alt="Student" loading="lazy" style="height: auto;">
                 </div>
                 
             </div>
@@ -198,17 +196,17 @@
                         <div class="map-options">
                             <a href="https://maps.app.goo.gl/kG4AQaePqhwPun6u7"
                                target="_blank" class="map-option">
-                                <img loading="lazy" style="border-radius: 15px" width="50" height="50" src="images/googlemap.webp">
+                                <img loading="lazy" style="border-radius: 15px" width="50" height="50" src="images/googlemap.webp" alt="Google Maps">
                             </a>
 
                             <a href="https://go.2gis.com/j08BD"
                                target="_blank" class="map-option">
-                                <img loading="lazy" width="50" height="50" src="images/2gis.webp">
+                                <img loading="lazy" width="50" height="50" src="images/2gis.webp" alt="2GIS">
                             </a>
 
                             <a href="https://maps.apple/p/FrZ7ej-F0Ke_s~"
                                target="_blank" class="map-option">
-                                <img loading="lazy" width="50" height="50" src="images/applemap.webp">
+                                <img loading="lazy" width="50" height="50" src="images/applemap.webp" alt="Apple Maps">
                             </a>
                         </div>
 
@@ -236,7 +234,7 @@
                 </div>
             </div>
 
-            <img src="images/robot-assistant.webp" alt="Ассистент" class="assistant-character">
+            <img src="images/robot-assistant.webp" alt="Ассистент" class="assistant-character" loading="lazy" width="150" height="150">
         </div>
 
         <div class="courses-container">
@@ -283,7 +281,7 @@
 
         <div class="footer-center">
             <div class="footer-logo">
-                <img src="images/logo.png" alt="">
+                <img src="images/logo.png" alt="Logo" loading="lazy" width="50" height="50">
                 <p class="gradient-title" data-i18n="footer_logo">IT Loop School</p>
             </div>
 
@@ -296,8 +294,8 @@
             </nav>
 
             <div class="footer-socials">
-                <a target="_blank" href="https://wa.me/77084130827"><img src="images/whatsapp-ico.webp" alt=""></a>
-                <a target="_blank" href="https://www.instagram.com/itloop.kz"><img src="images/instagram_ico.webp" alt=""></a>
+                <a target="_blank" href="https://wa.me/77084130827" aria-label="WhatsApp"><img src="images/whatsapp-ico.webp" alt="WhatsApp" loading="lazy" width="32" height="32"></a>
+                <a target="_blank" href="https://www.instagram.com/itloop.kz" aria-label="Instagram"><img src="images/instagram_ico.webp" alt="Instagram" loading="lazy" width="32" height="32"></a>
             </div>
 
             <p class="footer-copy" data-i18n="footer_copy">© 2025 IT Loop School. Все права защищены.</p>

@@ -183,38 +183,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!cardWidth) calculateCardWidth();
 
-        const cards = Array.from(track.children);
-        const middle = Math.floor(cards.length / 2);
-
-        // Плавное обновление классов для анимации масштаба и поворота
-        // Мы двигаемся ВПРАВО (track влево), значит:
-        // middle -> становится prev
-        // middle + 1 -> становится active
-        // middle + 2 -> становится next
-        // middle + 3 -> становится next2
-        // middle - 1 -> становится prev2
+        // 1. Убираем анимацию, чтобы мгновенно переставить элемент
+        track.style.transition = "none";
         
-        cards.forEach(card => card.classList.remove("prev", "active", "next", "prev2", "next2", "prev3", "next3"));
+        // 2. Переносим первый элемент в конец
+        track.appendChild(track.firstElementChild);
+        
+        // 3. Сдвигаем трек вправо, чтобы компенсировать перенос элемента (визуально остаемся на месте)
+        track.style.transform = `translateX(${cardWidth}px)`;
+        
+        // 4. Форсируем перерисовку (Reflow)
+        track.offsetHeight;
+        
+        // 5. Обновляем классы для нового порядка (чтобы центральный элемент стал active)
+        updateClasses();
 
-        if (cards[middle - 2]) cards[middle - 2].classList.add("prev3");
-        if (cards[middle - 1]) cards[middle - 1].classList.add("prev2");
-        if (cards[middle]) cards[middle].classList.add("prev");
-        if (cards[middle + 1]) cards[middle + 1].classList.add("active");
-        if (cards[middle + 2]) cards[middle + 2].classList.add("next");
-        if (cards[middle + 3]) cards[middle + 3].classList.add("next2");
-        if (cards[middle + 4]) cards[middle + 4].classList.add("next3");
-
+        // 6. Включаем анимацию и плавно сдвигаем в 0
         track.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
-        track.style.transform = `translateX(${-cardWidth}px)`;
+        track.style.transform = "translateX(0px)";
 
         const handleTransitionEnd = (e) => {
             if (e.propertyName !== "transform" || e.target !== track) return;
             track.removeEventListener("transitionend", handleTransitionEnd);
-            
-            track.style.transition = "none";
-            track.appendChild(track.firstElementChild);
-            track.style.transform = "translateX(0px)";
-            updateClasses();
             isAnimating = false;
         };
         track.addEventListener("transitionend", handleTransitionEnd);
