@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="IT школа в Каскелене и Алматы. Курсы программирования и IT для детей и взрослых. IT Loop School — обучение с нуля.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="style/headerStyle.css">
+    <link rel="stylesheet" href="style/aboutStyle.css">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preload" href="fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="style/footerStyle.css">
+    <noscript>
+        <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="style/coursesStyle.css">
+    <link rel="preload" as="image" href="images/banner.webp">
+    <title>IT школа в Каскелене — курсы программирования | IT Loop School</title>
+</head>
+    <script defer src="script/schema.js"></script>
+<body>
+
+<header id="main" class="header">
+    <div class="top-bar">
+        <div class="logo">
+                <img loading="lazy" src="images/logo.png" alt="">
+            <p data-i18n="logo_text">LOOP – IT школа для детей и взрослых</p>
+            <button class="menuBtn" id="menuBtn">
+                <img src="images/ep_arrow-up-bold.svg" alt="">
+            </button>
+        </div>
+
+        <div class="nav-container">
+            <nav class="nav" id="nav">
+                <a href="#main" data-i18n="nav_home">Главная</a>
+                <a href="#about" data-i18n="nav_about">О нас</a>
+                <a href="#courses" data-i18n="nav_courses">Курсы</a>
+                <a href="#contact" data-i18n="nav_contacts">Контакты</a>
+                <a class="whatsapp-btn" href="https://wa.me/77084130827" data-i18n="nav_whatsapp">WhatsApp</a>
+            </nav>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="kz">KZ</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="headerBanner">
+        <div class="banner-content">
+            <img loading="lazy" src="images/logo.png" alt="">
+            <h1 data-i18n="banner_title">
+                IT школа в Каскелене<br> IT Loop School
+            </h1>
+            <p data-i18n="banner_subtitle">
+                Обучение IT для детей и взрослых
+            </p>
+            <a href="https://wa.me/77084130827" class="btn" id="bannerEnrollBtn" data-i18n="banner_btn">
+                Записаться на курс
+            </a>
+        </div>
+    </section>
+</header>
+<main class="main">
+    <canvas id="particles-bg"></canvas>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <div  class="about-text">
+                <h2 data-i18n="about_title">О нас</h2>
+                <p data-i18n="about_text">
+                    <strong>IT Loop School</strong> — это <strong>IT школа в Каскелене</strong>,
+                    где дети и взрослые изучают программирование.
+                    Мы проводим <strong>курсы IT для детей в Каскелене и Алматы</strong>.
+                </p>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat">
+                    <span>...+</span>
+                    <p data-i18n="about_years">лет обучения</p>
+                </div>
+                <div class="stat">
+                    <span>...+</span>
+                    <p data-i18n="about_students">учеников</p>
+                </div>
+                <div class="stat">
+                    <span>...+</span>
+                    <p data-i18n="about_courses">курсов</p>
+                </div>
+            </div>
+        </div>
+        <div class="student-section">
+            <div class="ItLoopStudents-photo">
+                <div class="styled-img img1" ></div>
+                <div class="styled-img img2" ></div>
+                <div class="styled-img img3" ></div>
+                <div class="styled-img img4" ></div>
+                <div class="styled-img img5" ></div>
+                <div class="styled-img img6" ></div>
+                <div class="styled-img img7" ></div>
+
+            </div>
+            <div class="about-stidents">
+                <h3 data-i18n="students_title">Наши ученики</h3>
+                <p class="students_text" data-i18n="students_text">
+                    В IT Loop School ученики успешно завершают обучение по четырём ключевым направлениям: Python-программирование, Web-разработка, Roblox Studio и Компьютерная грамотность.
+                    Каждое из этих направлений помогает детям и подросткам получить современные цифровые навыки, необходимые в реальном мире технологий.
+                </p>
+                <p class="title-achiv" data-i18n="students_achievements">Их достижения</p> 
+                <div class="students_text2">
+                    <ul>
+                        <li class="list-st" data-i18n="students_li_1">Создают собственные игры и интерактивные миры в Roblox Studio;</li>
+                        <li class="list-st" data-i18n="students_li_2">Пишут программы на Python, решают задачи и создают мини-проекты;</li>
+                        <li class="list-st" data-i18n="students_li_3">Пишут программы на Python, решают задачи и создают мини-проекты;</li>
+                        <li class="list-st" data-i18n="students_li_4">Разрабатывают веб-страницы, понимают работу сайтов и основы фронтенда;</li>
+                        <li class="list-st" data-i18n="students_li_5">Уверенно используют компьютер, работают с офисными программами и интернет-сервисами.</li>
+                    
+                    </ul>
+                    <img class="student-img" width="300px" src="/images/stt.webp" alt="">
+                </div>
+                
+            </div>
+        </div>
+     
+
+    
+
+        <h2 class="maptitle courses-title" data-i18n="map_title">Наше местоположение</h2>
+
+        <div class="map-section">
+            <div class="map-wrapper">
+                <div class="map-bg"></div>
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+                <div class="logoMap"></div>
+                <div class="logoMap2"></div>
+            </div>
+
+            <!-- fullscreen карта -->
+            <div id="mapFullscreen" class="map-fullscreen">
+                <button class="map-fullscreen-close" id="closeFullscreen">X</button>
+                <div id="fullscreenMap"></div>
+            </div>
+
+            <div class="map-info">
+                <h3 data-i18n="map_how_find">Как нас найти</h3>
+
+                <p data-i18n="map_address" class="map-info-text">
+                    ул. Алии Молдагуловой 3а, г. Каскелен
+                </p>
+
+                <div class="map-btn-container">
+                    <div class="schedule">
+                        <div class="logoSchedule"></div>
+                        <div class="schedule-day">
+                            <h5 data-i18n="schedule_title">Режим работы</h5>
+
+                            <div class="schedule-day-p-container">
+                                <span class="schedule-day-p a" data-i18n="day_mon">Пн</span>
+                                <span class="schedule-day-p b" data-i18n="day_tue">Вт</span>
+                                <span class="schedule-day-p c " data-i18n="day_wed">Ср</span>
+                                <span class="schedule-day-p d" data-i18n="day_thu">Чт</span>
+                                <span class="schedule-day-p e" id="yellow" data-i18n="day_fri">Пт</span>
+                                <span class="schedule-day-p f" data-i18n="day_sat">Сб</span>
+                                <span class="schedule-day-p g" data-i18n="day_sun">Вс</span>
+
+                                <span class="work-schedule" data-i18n="schedule_weekdays">10:00-18:00</span>
+                                <span class="work-schedule-2" data-i18n="schedule_dayoff">Выходной</span>
+                                <span class="work-schedule-3" data-i18n="schedule_weekend">10:00-18:00</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="map-animation" id="svgContainer"></div>
+
+                    <a href="#" class="map-btn" id="routeBtn" data-i18n="map_route">
+                        Построить маршрут
+                    </a>
+                </div>
+
+                <div id="mapModal" class="map-modal">
+                    <div class="map-modal-content">
+                        <h3 data-i18n="map_choose_app">Выберите приложение</h3>
+
+                        <div class="map-options">
+                            <a href="https://maps.app.goo.gl/kG4AQaePqhwPun6u7"
+                               target="_blank" class="map-option">
+                                <img loading="lazy" style="border-radius: 15px" width="50" height="50" src="images/googlemap.webp">
+                            </a>
+
+                            <a href="https://go.2gis.com/j08BD"
+                               target="_blank" class="map-option">
+                                <img loading="lazy" width="50" height="50" src="images/2gis.webp">
+                            </a>
+
+                            <a href="https://maps.apple/p/FrZ7ej-F0Ke_s~"
+                               target="_blank" class="map-option">
+                                <img loading="lazy" width="50" height="50" src="images/applemap.webp">
+                            </a>
+                        </div>
+
+                        <button class="map-close-btn" data-i18n="map_close">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="courses" class="cours-title">
+        <h2 class="courses-title" data-i18n="courses_title">Курсы</h2>
+    </div>
+    <section class="courses">
+
+        <div class="courses-container">
+            <button class="carousel-btn prev">&lt;</button>
+
+            <div class="cards-track" id="cardsTrack">
+                <!-- JS сюда добавит карточки -->
+            </div>
+
+            <button class="carousel-btn next">&gt;</button>
+        </div>
+
+    </section>
+</main>
+
+<footer id="contact" class="footer">
+    <div class="footer-grid">
+
+        <div class="code-window">
+            <svg
+                    viewBox="0 0 350 220"
+                    preserveAspectRatio="xMidYMid meet"
+                    class="code-svg"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+                <!-- фон окна -->
+                <rect x="0" y="0" width="350" height="220" rx="12" fill="#282c34"/>
+                <rect x="0" y="0" width="350" height="28" rx="12" fill="#21252b"/>
+
+                <!-- кнопки -->
+                <circle cx="14" cy="14" r="5" fill="#ff5f57"/>
+                <circle cx="32" cy="14" r="5" fill="#ffbd2e"/>
+                <circle cx="50" cy="14" r="5" fill="#28c840"/>
+
+                <!-- код -->
+                <text x="20" y="50" class="svg-code" data-i18n="svg_doctype">&lt;!DOCTYPE html&gt;</text>
+                <text x="20" y="68" class="svg-tag" data-i18n="svg_html_open">&lt;html&gt;</text>
+                <text x="40" y="86" class="svg-tag" data-i18n="svg_head_open">&lt;head&gt;</text>
+                <text x="60" y="104" class="svg-title" data-i18n="svg_title">&lt;title&gt;IT Loop School&lt;/title&gt;</text>
+                <text x="40" y="122" class="svg-tag" data-i18n="svg_head_close">&lt;/head&gt;</text>
+                <text x="40" y="140" class="svg-tag" data-i18n="svg_body_open">&lt;body&gt;</text>
+                <text x="60" y="160" class="svg-h1" data-i18n="svg_h1">&lt;h1&gt;Присоединяйся!&lt;/h1&gt;</text>
+                <text x="60" y="178" class="svg-p" data-i18n="svg_p">&lt;p&gt;Учись веб-разработке&lt;/p&gt;</text>
+                <text x="40" y="196" class="svg-tag" data-i18n="svg_body_close">&lt;/body&gt;</text>
+                <text x="20" y="214" class="svg-tag" data-i18n="svg_html_close">&lt;/html&gt;</text>
+            </svg>
+        </div>
+
+        <div class="footer-center">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="">
+                <p class="gradient-title" data-i18n="footer_logo">IT Loop School</p>
+            </div>
+
+            <nav class="footer-nav">
+                <a href="#main" data-i18n="footer_home">Главная</a>
+                <a href="#about" data-i18n="footer_about">О нас</a>
+                <a href="#courses" data-i18n="footer_courses">Курсы</a>
+                <a href="#contact" data-i18n="footer_contacts">Контакты</a>
+                <a href="https://wa.me/77084130827" data-i18n="footer_whatsapp">WhatsApp</a>
+            </nav>
+
+            <div class="footer-socials">
+                <a target="_blank" href="https://wa.me/77084130827"><img src="images/whatsapp-ico.webp" alt=""></a>
+                <a target="_blank" href="https://www.instagram.com/itloop.kz"><img src="images/instagram_ico.webp" alt=""></a>
+            </div>
+
+            <p class="footer-copy" data-i18n="footer_copy">© 2025 IT Loop School. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+<script defer src="script/scrol.js"></script>
+<script defer src="script/navigation.js"></script>
+<script defer src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<script defer src="script/mapScrol.js"></script>
+<script defer src="script/changeLang.js"></script>
+<script defer src="script/header.js"></script>
+<script defer src="script/person-anim.js"></script>
+<script defer src="script/modalMap.js"></script>
+<script defer src="script/chalkboard-drag.js"></script>
+<script defer src="script/addCard.js"></script>
+<script defer src="script/cardParticles.js"></script>
+<script defer src="script/send-message.js"></script>
+<script defer src="script/particleMain.js"></script>
+<script defer src="script/chalkboard-drag.js"></script>
+
+
+</body>
+</html>
