@@ -1,0 +1,126 @@
+.courses {
+    position: relative;
+}
+
+/* ===== Ассистент ===== */
+.course-assistant {
+    position: absolute;
+    right: 20px;
+    bottom: 120px;
+    display: flex;
+    align-items: flex-end;
+    z-index: 20;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.course-assistant.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Персонаж ===== */
+.assistant-character {
+    width: 140px;
+    animation: floatAssistant 4s ease-in-out infinite;
+}
+
+@keyframes floatAssistant {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* ===== Bubble ===== */
+.assistant-bubble {
+    max-width: 320px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    position: relative;
+    animation: fadeText 0.4s ease;
+}
+
+@keyframes fadeText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.assistant-bubble::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    bottom: 70px;
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+}
+
+.assistant-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #00a8c7;
+}
+
+/* ===== Кнопка закрытия ===== */
+.assistant-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    color: #999;
+    margin: 0 0 0 15px;
+}
+
+.assistant-close:hover {
+    color: #000;
+}
+
+@media (max-width: 1450px) {
+    .course-assistant {
+        margin: 40px auto 0;
+    }
+    .assistant-bubble {
+        width: 230px;
+    }
+    .assistant-bubble::after {
+        display: none;
+    }
+}
+
+@media (max-width: 1240px) {
+    .course-assistant{
+        bottom: 10px;
+    }
+    .assistant-bubble {
+        width: 250px;
+    }
+
+}
+@media (max-width: 768px) {
+    .assistant-character {
+        /*display: none;*/
+        width: 100px;
+    }
+
+    .assistant-bubble {
+        max-width: 180px;
+        text-align: center;
+        padding: 5px;
+    }
+}

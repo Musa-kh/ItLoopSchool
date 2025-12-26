@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style/aboutStyle.css">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="stylesheet" href="style/courseAssistant.css">
+
     <link rel="preload" href="fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="style/footerStyle.css">
@@ -89,7 +91,7 @@
                     <p data-i18n="about_students">учеников</p>
                 </div>
                 <div class="stat">
-                    <span>...+</span>
+                    <span>7+</span>
                     <p data-i18n="about_courses">курсов</p>
                 </div>
             </div>
@@ -217,19 +219,31 @@
     <div id="courses" class="cours-title">
         <h2 class="courses-title" data-i18n="courses_title">Курсы</h2>
     </div>
+
     <section class="courses">
+        <!-- Ассистент -->
+        <div class="course-assistant" id="courseAssistant">
+            <div class="assistant-bubble">
+                <button class="assistant-close" id="assistantClose">✕</button>
+
+                <div class="assistant-title" id="assistantTitle">
+                    Выберите курс 👋
+                </div>
+                <div id="assistantText">
+                    Нажмите на карточку, и я подробно расскажу, чему вы научитесь на этом курсе.
+                </div>
+            </div>
+
+            <img src="images/robot-assistant.webp" alt="Ассистент" class="assistant-character">
+        </div>
 
         <div class="courses-container">
             <button class="carousel-btn prev">&lt;</button>
-
-            <div class="cards-track" id="cardsTrack">
-                <!-- JS сюда добавит карточки -->
-            </div>
-
+            <div class="cards-track" id="cardsTrack"></div>
             <button class="carousel-btn next">&gt;</button>
         </div>
-
     </section>
+
 </main>
 
 <footer id="contact" class="footer">
@@ -259,7 +273,7 @@
                 <text x="40" y="122" class="svg-tag" data-i18n="svg_head_close">&lt;/head&gt;</text>
                 <text x="40" y="140" class="svg-tag" data-i18n="svg_body_open">&lt;body&gt;</text>
                 <text x="60" y="160" class="svg-h1" data-i18n="svg_h1">&lt;h1&gt;Присоединяйся!&lt;/h1&gt;</text>
-                <text x="60" y="178" class="svg-p" data-i18n="svg_p">&lt;p&gt;Учись веб-разработке&lt;/p&gt;</text>
+                <text x="60" y="178" class="svg-p" data-i18n="svg_p">&lt;p&gt;Учись программированию&lt;/p&gt;</text>
                 <text x="40" y="196" class="svg-tag" data-i18n="svg_body_close">&lt;/body&gt;</text>
                 <text x="20" y="214" class="svg-tag" data-i18n="svg_html_close">&lt;/html&gt;</text>
             </svg>
@@ -308,7 +322,9 @@
 <script defer src="script/send-message.js"></script>
 <script defer src="script/particleMain.js"></script>
 <script defer src="script/chalkboard-drag.js"></script>
+<script defer src="script/courseAssistant.js"></script>
 
 
+            
 </body>
 </html>

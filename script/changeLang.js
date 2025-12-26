@@ -95,7 +95,7 @@ const translations = {
         svg_head_close: "&lt;/head&gt;",
         svg_body_open: "&lt;body&gt;",
         svg_h1: "&lt;h1&gt;Присоединяйся!&lt;/h1&gt;",
-        svg_p: "&lt;p&gt;Учись веб-разработке&lt;/p&gt;",
+        svg_p: "&lt;p&gt;Учись программированию&lt;/p&gt;",
         svg_body_close: "&lt;/body&gt;",
         svg_html_close: "&lt;/html&gt;",
         footer_logo: "IT Loop School",
@@ -104,7 +104,32 @@ const translations = {
         footer_courses: "Курсы",
         footer_contacts: "Контакты",
         footer_whatsapp: "WhatsApp",
-        footer_copy: "© 2025 IT Loop School. Все права защищены."
+        footer_copy: "© 2025 IT Loop School. Все права защищены.",
+
+        assistant_default_title: "Выберите курс 👋",
+        assistant_default_text: "Нажмите на карточку, и я подробно расскажу, чему вы научитесь на этом курсе.",
+
+        assistant_course_roblox_title: "Roblox Studio 🎮",
+        assistant_course_roblox_text: "Создание собственных игр и миров. Логика, скрипты и геймдизайн.",
+
+        assistant_course_frontend_title: "Frontend разработка 🌐",
+        assistant_course_frontend_text: "HTML, CSS и JavaScript. Создание реальных сайтов с нуля.",
+
+        assistant_course_python_title: "Python программирование 🐍",
+        assistant_course_python_text: "Основы программирования, логика, алгоритмы и проекты.",
+
+        assistant_course_school_prep_title: "Подготовка к школе ✏️",
+        assistant_course_school_prep_text: "Чтение, счёт, внимание и развитие мышления.",
+
+        assistant_course_robotics_title: "Робототехника 🤖",
+        assistant_course_robotics_text: "Работа с роботами, схемами и программированием.",
+
+        assistant_course_robotics_2_title: "Робототехника (выходной) 🤖",
+        assistant_course_robotics_2_text: "Практические занятия в удобное время.",
+
+        assistant_course_computer_literacy_title: "Компьютерная грамотность 💻",
+        assistant_course_computer_literacy_text: "Уверенная работа с компьютером и интернетом.",
+
     },
 
     kz: {
@@ -202,7 +227,7 @@ const translations = {
         svg_head_close: "&lt;/head&gt;",
         svg_body_open: "&lt;body&gt;",
         svg_h1: "&lt;h1&gt;Қосылыңыз!&lt;/h1&gt;",
-        svg_p: "&lt;p&gt;Веб-әзірлеуді үйреніңіз&lt;/p&gt;",
+        svg_p: "&lt;p&gt;Бағдарламалауды үйреніңіз&lt;/p&gt;",
         svg_body_close: "&lt;/body&gt;",
         svg_html_close: "&lt;/html&gt;",
         footer_logo: "IT Loop School",
@@ -211,7 +236,33 @@ const translations = {
         footer_courses: "Курстар",
         footer_contacts: "Байланыс",
         footer_whatsapp: "WhatsApp",
-        footer_copy: "© 2025 IT Loop School. Барлық құқықтар қорғалған."
+        footer_copy: "© 2025 IT Loop School. Барлық құқықтар қорғалған.",
+
+
+        assistant_default_title: "Курсты таңдаңыз 👋",
+        assistant_default_text: "Картаны басыңыз — мен сізге бұл курста нені үйренетініңізді толық түсіндіремін.",
+
+        assistant_course_roblox_title: "Roblox Studio 🎮",
+        assistant_course_roblox_text: "Roblox Studio-да өз ойындары мен әлемдерін жасау. Логика, скрипттер және геймдизайн.",
+
+        assistant_course_frontend_title: "Frontend әзірлеу 🌐",
+        assistant_course_frontend_text: "HTML, CSS және JavaScript. Заманауи сайттарды нөлден жасау.",
+
+        assistant_course_python_title: "Python бағдарламалау 🐍",
+        assistant_course_python_text: "Бағдарламалаудың негіздері, логика, алгоритмдер және жобалар.",
+
+        assistant_course_school_prep_title: "Мектепке дайындық ✏️",
+        assistant_course_school_prep_text: "Оқу, санау, зейін және ойлауды дамыту.",
+
+        assistant_course_robotics_title: "Робототехника 🤖",
+        assistant_course_robotics_text: "Роботтармен, схемалармен және бағдарламалаумен жұмыс.",
+
+        assistant_course_robotics_2_title: "Робототехника (демалыс) 🤖",
+        assistant_course_robotics_2_text: "Қолайлы уақытта практикалық сабақтар.",
+
+        assistant_course_computer_literacy_title: "Компьютерлік сауаттылық 💻",
+        assistant_course_computer_literacy_text: "Компьютер мен интернетті сенімді пайдалану.",
+
     },
 
     en: {
@@ -309,7 +360,7 @@ const translations = {
         svg_head_close: "&lt;/head&gt;",
         svg_body_open: "&lt;body&gt;",
         svg_h1: "&lt;h1&gt;Join us!&lt;/h1&gt;",
-        svg_p: "&lt;p&gt;Learn web development&lt;/p&gt;",
+        svg_p: "&lt;p&gt;Learn programming;/p&gt;",
         svg_body_close: "&lt;/body&gt;",
         svg_html_close: "&lt;/html&gt;",
         footer_logo: "IT Loop School",
@@ -318,7 +369,33 @@ const translations = {
         footer_courses: "Courses",
         footer_contacts: "Contacts",
         footer_whatsapp: "WhatsApp",
-        footer_copy: "© 2025 IT Loop School. All rights reserved."
+        footer_copy: "© 2025 IT Loop School. All rights reserved.",
+
+
+        assistant_default_title: "Choose a course 👋",
+        assistant_default_text: "Click on a course card and I will explain in detail what you will learn.",
+
+        assistant_course_roblox_title: "Roblox Studio 🎮",
+        assistant_course_roblox_text: "Create your own games and worlds in Roblox Studio. Logic, scripting and game design.",
+
+        assistant_course_frontend_title: "Frontend Development 🌐",
+        assistant_course_frontend_text: "HTML, CSS and JavaScript. Build real websites from scratch.",
+
+        assistant_course_python_title: "Python Programming 🐍",
+        assistant_course_python_text: "Programming basics, logic, algorithms and real projects.",
+
+        assistant_course_school_prep_title: "School Preparation ✏️",
+        assistant_course_school_prep_text: "Reading, math, focus and thinking skills development.",
+
+        assistant_course_robotics_title: "Robotics 🤖",
+        assistant_course_robotics_text: "Working with robots, circuits and programming.",
+
+        assistant_course_robotics_2_title: "Robotics (Weekend) 🤖",
+        assistant_course_robotics_2_text: "Hands-on robotics classes at a convenient time.",
+
+        assistant_course_computer_literacy_title: "Computer Literacy 💻",
+        assistant_course_computer_literacy_text: "Confident computer and internet usage.",
+
     }
 };
 

@@ -109,6 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
     courses.forEach(course => {
         const card = document.createElement("div");
         card.classList.add("course-card");
+        card.dataset.course = course.titleKey; 
+
         card.innerHTML = `
             <div class="card-image">
                 <img src="${course.img}" alt="" loading="lazy">
