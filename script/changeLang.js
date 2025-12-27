@@ -18,7 +18,7 @@ const translations = {
         about_text:
             "<strong>IT Loop School</strong> — это современная IT-школа, где дети и взрослые изучают программирование, дизайн и цифровые технологии с нуля.<br><br>Мы обучаем в понятной форме, с практикой и поддержкой преподавателей на каждом этапе.",
 
-        about_years: "лет обучения",
+        about_years: "лет опыта",
         about_students: "учеников",
         about_courses: "курсов",
 
@@ -150,7 +150,7 @@ const translations = {
         about_text:
             "<strong>IT Loop School</strong> — балалар мен ересектерге арналған заманауи IT мектебі.<br><br>Біз бағдарламалау, дизайн және цифрлық технологияларды нөлден бастап үйретеміз.",
 
-        about_years: "оқыту жылдары",
+        about_years: "көпжылдық тәжірибе",
         about_students: "оқушылар",
         about_courses: "курстар",
 
